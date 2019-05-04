@@ -1,3 +1,13 @@
 from django.db import models
 
-# Create your models here.
+
+class Data(models.Model):
+    temp = models.CharField(max_length=100)
+    humidity = models.CharField(max_length=100)
+    water = models.CharField(max_length=100)
+    city = models.CharField(max_length=100, default='')
+
+
+
+
+

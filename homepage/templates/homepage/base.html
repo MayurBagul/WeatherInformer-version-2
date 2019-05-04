@@ -16,7 +16,7 @@
 
 
     {% if title %}
-    <title>HomePage</title>
+    <title>{{ title }}</title>
     {% else %}
     <title>About Page</title>
     {% endif %}
@@ -35,6 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+                    <a class="nav-item nav-link" href="{% url 'weather' %}">Weather</a>
                     <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
                 </div>
                 <!-- Navbar Right Side -->

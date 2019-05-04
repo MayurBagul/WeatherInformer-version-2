@@ -1,0 +1,46 @@
+{% extends 'homepage/base.html' %}
+
+{% block content %}
+
+<div class="card-group">
+    <div class="card">
+        <img src="/media/temp.png" class="card-img-top" alt="Temp">
+        <div class="card-body">
+            <h5 class="card-title text-center">Temperature</h5>
+        </div>
+    </div>
+    <div class="card">
+        <img src="/media/humidity.png" class="card-img-top" alt="humidity">
+        <div class="card-body">
+            <h5 class="card-title text-center">Humidity</h5>
+        </div>
+    </div>
+    <div class="card">
+        <img src="/media/water.png" class="card-img-top" alt="water">
+        <div class="card-body">
+            <h5 class="card-title text-center">Water Level</h5>
+        </div>
+    </div>
+</div>
+
+<div class="card-group">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-text text-center">{{ data.temp }}</h5>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-text text-center">{{ data.humidity }}</h5>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-text text-center">{{ data.water }}</h5>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
