@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <div class="card-group">
     <div class="card">
         <img src="/media/temp.png" class="card-img-top" alt="Temp">
@@ -23,24 +24,35 @@
     </div>
 </div>
 
+{% for i in data %}
+
 <div class="card-group">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-text text-center">{{ data.temp }}</h5>
+            <h5 class="card-text text-center">{{ i.temp }}</h5>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-text text-center">{{ data.humidity }}</h5>
+            <h5 class="card-text text-center">{{ i.humidity }}</h5>
         </div>
     </div>
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-text text-center">{{ data.water }}</h5>
+            <h5 class="card-text text-center">{{ i.water }}</h5>
         </div>
     </div>
 </div>
 
+{% endfor %}
+
+<br>
+
+<form action="{% url 'weather' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
 
 {% endblock content %}

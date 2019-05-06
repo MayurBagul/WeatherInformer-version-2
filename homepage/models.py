@@ -7,7 +7,7 @@ class Data(models.Model):
     water = models.CharField(max_length=100)
     city = models.CharField(max_length=100, default='')
 
-
-
+    def __str__(self):
+        return self.city
 
 

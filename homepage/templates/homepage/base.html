@@ -79,6 +79,7 @@
             </div>
         </div>
     </div>
+
 </main>
 
 
@@ -95,12 +96,15 @@
         crossorigin="anonymous"></script>
 
 <script>
-var dt = new Date();
-document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
-
-function checkTemp()
+function valform()
 {
-    document.getElementById("t").value=" 35 deg/cel.";
+var city=document.forms['check']['checktemp'].value;
+
+if (city=="Pune" || "Mumbai" || "Heyderabad" || "Delhi")
+    document.getElementById('demo').innerHTML='data'
+
+
+
 }
 </script>
 

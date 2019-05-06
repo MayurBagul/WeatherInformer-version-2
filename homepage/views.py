@@ -1,12 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import Data
+from .form import CityForm
 import random
-
-# temp = random.choice(["26'C", "35'C", "30'C", "20'C", "15'C", ])
-
-# humidity = random.choice(['25%', '26%', '29%', '28%'])
-
-# water_lvl = random.choice(['55%', '56%', '54%', '53%'])
 
 
 def home(request):
@@ -18,11 +14,17 @@ def about(request):
 
 
 def weather(request):
-    output = Data.objects.all()
 
-    data = random.choice(output)
+    if request.method == 'POST':
+        form = CityForm(request.POST)
+    else:
+        form = CityForm()
 
-    info = {'data': data, 'title': 'Weather'}
+    condition = request.POST.get('city_name')
+
+    data = Data.objects.filter(city__exact=condition)
+
+    info = {'data': data, 'title': 'Weather', 'form': form}
 
     return render(request, 'homepage/weather.html', info)
 
