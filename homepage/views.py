@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import Data
 from .form import CityForm
+from django.contrib.auth.decorators import login_required
 import random
 
 
@@ -13,6 +14,7 @@ def about(request):
     return render(request, 'homepage/about.html', {'title': 'About'})
 
 
+@login_required
 def weather(request):
 
     if request.method == 'POST':
